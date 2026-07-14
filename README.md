@@ -1,35 +1,36 @@
-# Wonderyear
+# WONDERYEAR — Landing Page README
 
-A single-page site for a fictional year-round children's play centre. The active
-season is auto-detected from the visitor's date; clicking **SUMMER · AUTUMN ·
-WINTER · SPRING** transforms the whole page in place — a clip-path "Season Bloom"
-reveal with a Canvas particle burst, no page reload.
+**WONDERYEAR** presents a fictional year-round children's play centre through a single page built around one promise: *one magical place, four seasons of play*. The project demonstrates vanilla web development—no frameworks, dependencies, or build tools required.
 
-Built with plain **HTML / CSS / JS** — no framework, no runtime dependencies.
+![Wonderyear hero — the storybook pavilion on a sunny summer meadow with a sandcastle, kite and wildflowers](preview.jpg)
 
-## Run
+## Core Concept
 
-Any static server, e.g.:
+The site has no traditional navigation—the only menu is four words: **SUMMER · AUTUMN · WINTER · SPRING**. The active season is auto-detected from the visitor's date, and clicking a season transforms the *entire* page in place, never a reload: hero artwork, adventures, map, quotes, pass names, sky gradients and the underground footer all swap to the chosen season. It moves visitors through seven scenes—hero, this season's adventures, the illustrated map, a day at Wonderyear, parents say, pick your adventure, and the visit/footer—each rebuilt so the same beloved place becomes four different worlds.
 
-```bash
-python3 -m http.server 8777
-# open http://localhost:8777/index.html
-```
+## Technical Highlights
 
-## Structure
+The implementation uses **plain HTML, CSS, and JavaScript** with `IntersectionObserver` and `requestAnimationFrame` for scroll reveals and cinematic transitions. Key features include:
 
-- `index.html` — markup
-- `styles.css` — all styling (CSS custom properties drive seasonal theming)
-- `app.js` — season switching, Season Bloom, particles, scroll choreography
-- `assets/*.webp` — optimized illustrations (hero, map, adventures, portraits, footers)
+- Clean three-file structure—`index.html`, `styles.css`, `app.js`—no framework, zero runtime dependencies
+- "Season Bloom" hero transition: an animated `clip-path` watercolor mask led by a single recycled-particle `<canvas>` burst (snow, leaves, petals, fireflies)
+- CSS custom properties drive all seasonal accent theming for instant, cheap below-fold switching
+- Date-based season auto-detect, with keyboard (← →) and swipe navigation
+- All four hero sets preloaded before the switcher is enabled
+- Semantic landmarks, alt text on every illustration, and `aria-live` season announcements
+- Fully responsive from 360px to 1920px, verified across six viewports with Playwright
+- WCAG-AA contrast, plus full `prefers-reduced-motion` fallback (layered crossfade, no particles)
+- Self-hosted assets optimized to **WebP** (≈97% smaller than the source PNGs)
 
-## Features
+## Design System
 
-- Date-based season auto-detect; keyboard (← →) and swipe switching
-- Season Bloom hero transition + ambient seasonal particles
-- Full-width illustrated map with picture-book tooltips
-- Scroll-drawn day timeline, staggered reveals, seasonal gradient bands
-- Fully responsive (360px → 1920px), WCAG-AA contrast, `prefers-reduced-motion` respected
+A "Living Palette" anchors the brand: Storybook Ink (`#2B2B45`) for all typography and UI over Paper Cream (`#FFF8EF`) surfaces, with Sunbeam (`#FFB427`) reserved for the logo and the single primary CTA. Each active season takes over the accent details—Summer Sky Pop (`#38B6E8`), Autumn Amber Rust (`#E8722C`), Winter Frost Blue (`#7BC4E0`), Spring Blossom Pink (`#F27EB2`)—with a maximum of three colors visible per viewport. Typography pairs **Fredoka** for display headings with **Nunito** for body and UI.
+
+## Getting Started
+
+Run locally with any static server: `python3 -m http.server 8777`
+
+**Live site:** [wonderyear.vercel.app](https://wonderyear.vercel.app)
 
 ---
 
