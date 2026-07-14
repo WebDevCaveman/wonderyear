@@ -1,20 +1,13 @@
-# Build / tooling
 node_modules/
 package.json
 package-lock.json
 responsive-check.mjs
-
-# Source PNGs (site ships optimized .webp only)
 assets/*.png
-
-# Prototype & brief (not part of the shipped site)
+assets/adv-splash-summer.webp
 Wonderyear.dc.html
 support.js
 wonderyear-site-prompt.md
 download_assets.sh
-
-# Editor / OS
 .claude/
+.git/
 .DS_Store
-assets/adv-splash-summer.webp
-.vercel
