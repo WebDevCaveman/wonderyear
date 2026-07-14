@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wonderyear — Four seasons of play</title>
+<meta name="description" content="Wonderyear is a play centre that's open all year round — the same beloved place, four different worlds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/hero-summer-16x9.webp">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page" data-season="summer">
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand__name">Wonderyear</span>
+      <span class="brand__dot" aria-hidden="true"></span>
+    </div>
+    <nav class="seasons" aria-label="Season" id="nav">
+      <button class="seasons__item" data-skey="summer">SUMMER</button>
+      <button class="seasons__item" data-skey="autumn">AUTUMN</button>
+      <button class="seasons__item" data-skey="winter">WINTER</button>
+      <button class="seasons__item" data-skey="spring">SPRING</button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="hero" aria-label="Hero">
+    <div class="hero__stage">
+      <img class="hero__img" data-season="summer" alt="The Wonderyear pavilion on a sunny summer meadow with a sandcastle and wildflowers" src="assets/hero-summer-16x9.webp">
+      <img class="hero__img" data-season="autumn" alt="The Wonderyear pavilion among glowing amber trees, falling leaves and pumpkins" src="assets/hero-autumn-16x9.webp">
+      <img class="hero__img" data-season="winter" alt="The Wonderyear pavilion under soft snow with a friendly snowman and a sled" src="assets/hero-winter-16x9.webp">
+      <img class="hero__img" data-season="spring" alt="The Wonderyear pavilion in a blooming spring meadow with cherry blossoms and a pinwheel" src="assets/hero-spring-16x9.webp">
+      <div class="hero__wash" aria-hidden="true"></div>
+      <canvas class="hero__canvas" id="canvas" aria-hidden="true"></canvas>
+    </div>
+    <div class="hero__divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 130" preserveAspectRatio="none">
+        <path d="M0,130 L0,78 C48,60 96,94 168,84 C240,74 268,36 340,44 C412,52 448,96 520,92 C592,88 628,42 700,36 C772,30 820,74 892,82 C964,90 1010,52 1082,44 C1154,36 1198,80 1270,88 C1342,96 1394,66 1440,74 L1440,130 Z" fill="#FFF8EF" opacity="0.45"></path>
+        <path d="M0,130 L0,96 C56,80 112,108 184,100 C256,92 292,58 364,64 C436,70 472,108 544,106 C616,104 656,66 728,60 C800,54 844,92 916,100 C988,108 1036,74 1108,68 C1180,62 1224,98 1296,104 C1360,109 1408,88 1440,94 L1440,130 Z" fill="#FFF8EF"></path>
+        <circle class="hero__divider-dot" cx="365" cy="38" r="7"></circle>
+        <circle class="hero__divider-dot" cx="729" cy="34" r="10"></circle>
+        <circle class="hero__divider-dot" cx="1109" cy="42" r="6"></circle>
+      </svg>
+    </div>
+    <div class="hero__content" id="heroContent">
+      <h1 class="hero__headline" id="headline">Splash into the longest days of play</h1>
+      <p class="hero__mission">One magical place. <mark>Four seasons of play.</mark><br>Wonderyear is a play centre that's open <mark>all year round</mark> – the same beloved place, four different worlds.</p>
+      <a class="btn-primary" href="#visit">Plan Your Visit</a>
+    </div>
+  </section>
+
+  <!-- ADVENTURES -->
+  <section class="adventures" id="adventures" aria-label="This Season's Adventures">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>This Season's Adventures</h2>
+        <p class="adv-intro" id="advIntro">Sunshine, water and wide-open laughter.</p>
+      </div>
+      <div class="adv-list" id="advList"></div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="map" id="map" aria-label="The Map of Wonderyear">
+    <div class="wrap map__head">
+      <h2>The Map of Wonderyear</h2>
+      <p>Tap around – <mark>every corner changes with the seasons.</mark></p>
+    </div>
+    <div class="map__frame" id="mapFrame">
+      <div class="map__images">
+        <img class="map__img" data-season="summer" alt="Illustrated summer map of Wonderyear: the pavilion in the middle, a swimming pond with a slide, a sandcastle hill, treetop rope bridges and a little workshop hut" src="assets/map-summer-16x9.webp">
+        <img class="map__img" data-season="autumn" loading="lazy" alt="The same map of Wonderyear in autumn, with amber trees, fallen leaves, a leaf pile and pumpkins" src="assets/map-autumn-16x9.webp">
+        <img class="map__img" data-season="winter" loading="lazy" alt="The same map of Wonderyear in winter, under snow, with a frozen skating pond and a sled on the hill" src="assets/map-winter-16x9.webp">
+        <img class="map__img" data-season="spring" loading="lazy" alt="The same map of Wonderyear in spring, with blossoming pink trees, tulips, garden beds and a kite over the hill" src="assets/map-spring-16x9.webp">
+      </div>
+      <div class="map__hotspots" id="mapHotspots"></div>
+      <div class="map__tip" id="mapTip" role="status" hidden>
+        <div class="map__tip-title"></div>
+        <div class="map__tip-desc"></div>
+        <span class="map__tip-arrow" aria-hidden="true"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY -->
+  <section class="day" id="day" aria-label="A Day at Wonderyear">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>A Day at Wonderyear</h2>
+        <p>The gentle rhythm of a child's day – from the first hello to the goodbye song.</p>
+      </div>
+      <div class="day__scroll">
+        <div class="day__inner">
+          <div class="day__track">
+            <svg class="day__ghost" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0,92 Q50,-62 100,92" fill="none" stroke="#2B2B45" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke" opacity="0.12" stroke-dasharray="0.1 7"></path>
+            </svg>
+            <svg class="day__draw" id="dayDraw" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0,92 Q50,-62 100,92" fill="none" stroke="#2B2B45" stroke-width="4.5" stroke-linecap="round" vector-effect="non-scaling-stroke" stroke-dasharray="0.15 5.2"></path>
+            </svg>
+            <div class="day__dots" id="dayDots"></div>
+            <div class="day__sun" id="daySun" aria-hidden="true">
+              <svg viewBox="0 0 40 40">
+                <circle cx="20" cy="20" r="9" fill="#FFB427" stroke="#2B2B45" stroke-width="2"></circle>
+                <g stroke="#FFB427" stroke-width="3" stroke-linecap="round">
+                  <path d="M20,3 L20,8"></path><path d="M20,32 L20,37"></path><path d="M3,20 L8,20"></path><path d="M32,20 L37,20"></path>
+                  <path d="M8,8 L11.5,11.5"></path><path d="M28.5,28.5 L32,32"></path><path d="M32,8 L28.5,11.5"></path><path d="M11.5,28.5 L8,32"></path>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="day__stops" id="dayStops"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARENTS SAY -->
+  <section class="parents" id="parents" aria-label="Parents Say">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Parents Say</h2>
+        <p>In their own words – from the grown-ups who bring them.</p>
+      </div>
+      <div class="parents__grid" id="parentsGrid"></div>
+    </div>
+  </section>
+
+  <!-- PICK -->
+  <section class="pick" id="pick" aria-label="Pick Your Adventure">
+    <div class="wrap">
+      <div class="section-head"><h2>Pick Your Adventure</h2></div>
+      <div class="pick__grid" id="pickGrid"></div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="visit" id="visit" aria-label="Visit Us">
+    <div class="visit__sky" data-season="summer" aria-hidden="true"></div>
+    <div class="visit__sky" data-season="autumn" aria-hidden="true"></div>
+    <div class="visit__sky" data-season="winter" aria-hidden="true"></div>
+    <div class="visit__sky" data-season="spring" aria-hidden="true"></div>
+    <svg class="visit__wave" aria-hidden="true" viewBox="0 0 1440 90" preserveAspectRatio="none">
+      <path d="M0,0 L1440,0 L1440,26 C1384,42 1330,18 1258,26 C1186,34 1148,64 1076,60 C1004,56 964,24 892,20 C820,16 776,50 704,56 C632,62 592,30 520,26 C448,22 408,54 336,60 C264,66 220,38 148,32 C90,27 40,44 0,38 Z" fill="#FFF8EF"></path>
+    </svg>
+    <div class="visit__content" id="visitContent">
+      <h2>Ready for this season's adventure?</h2>
+      <p>We're open every day, <mark>all year round</mark> – rain, shine, snow or blossom.</p>
+    </div>
+    <div class="visit__ground">
+      <img class="visit__ground-img" data-season="summer" alt="Storybook cross-section of the summer ground beneath Wonderyear: a cozy mole burrow, glowing firefly jars among roots, a treasure chest, crystals, a dinosaur fossil and an underground lake with a rowboat" src="assets/footer-summer.webp">
+      <img class="visit__ground-img" data-season="autumn" loading="lazy" alt="Storybook cross-section of the autumn ground: a squirrel's pantry of acorns and jams, a sleeping hedgehog, apple juice barrels, glowing mushrooms, amber stones and a buried lantern" src="assets/footer-autumn.webp">
+      <img class="visit__ground-img" data-season="winter" loading="lazy" alt="Storybook cross-section of the winter ground: hibernating bears under a patchwork quilt, a badger cooking soup, dormice sleeping in teacups, stacks of knitted scarves, ice caves and a frozen stream with dreaming fish" src="assets/footer-winter.webp">
+      <img class="visit__ground-img" data-season="spring" loading="lazy" alt="Storybook cross-section of the spring ground: glowing sprouting bulbs, a rabbit family nursery, a mole gardener with a wheelbarrow, ladybug caves, flowers growing from old rainboots and butterflies hatching in a grotto" src="assets/footer-spring.webp">
+      <footer class="visit__footer">
+        <p class="visit__footer-address">Wonderyear · 4 Seasons Lane, Evergreen Valley</p>
+        <p class="visit__footer-legal">© 2026 Wonderyear · Crafted by <a href="https://webdevcaveman.com" target="_blank" rel="noopener">WEBDEVCAVEMAN</a></p>
+      </footer>
+    </div>
+  </section>
+
+  <button class="to-top" id="toTop" aria-label="Back to the top">
+    <svg viewBox="0 0 64 84">
+      <path class="to-top__body" d="M32,4 C46,4 55,16 55,29 C55,43 43,52 32,57 C21,52 9,43 9,29 C9,16 18,4 32,4 Z"></path>
+      <path d="M32,4 C38,4 42,16 42,29 C42,42 37,52 32,57 C27,52 22,42 22,29 C22,16 26,4 32,4 Z" fill="#FFF8EF" opacity="0.55"></path>
+      <path d="M32,4 C46,4 55,16 55,29 C55,43 43,52 32,57 C21,52 9,43 9,29 C9,16 18,4 32,4 Z" fill="none" stroke="#2B2B45" stroke-width="2.4"></path>
+      <path d="M25,57 L27,66 M39,57 L37,66" stroke="#2B2B45" stroke-width="2" stroke-linecap="round"></path>
+      <rect x="24" y="65" width="16" height="13" rx="4" fill="#FFB427" stroke="#2B2B45" stroke-width="2.4"></rect>
+      <path d="M24,70.5 h16" stroke="#2B2B45" stroke-width="1.6" opacity="0.55"></path>
+      <path d="M32,20 L32,42 M32,20 L25,28 M32,20 L39,28" stroke="#2B2B45" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+  </button>
+
+  <div class="sr-only" aria-live="polite" id="announce"></div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
